@@ -25,7 +25,7 @@ app.get('/tasks', (req, res)=>{
     
     })
     
-
+// this function creates new todo 
     app.post('/tasks', (req, res)=>{
         
         Todo.create(req.body, (err, newData)=>{
@@ -53,6 +53,7 @@ app.get('/tasks', (req, res)=>{
                 }
               });
         })
+
         
       // update one todo function down below
         app.put("/tasks/:oldTitle", (req, res)=>{
@@ -71,6 +72,8 @@ app.get('/tasks', (req, res)=>{
         })
 
 
+    
+
 
         // a function to get elements with either true or false isCompleted  depending on what the user enter
         app.get("/filter", (req, res)=>{
@@ -81,6 +84,43 @@ app.get('/tasks', (req, res)=>{
                     res.json(data)
                 }
             })
+        })
+
+
+
+        // this function deletes completed tasks
+        app.delete('/deleteCompleted', (req, res)=>{
+          
+            Todo.deleteMany({isCompleted: true}, (err, deleteObj) => {
+                if (err) {
+                  console.log("error", err)
+                  
+                } else {
+                    console.log(deleteObj);
+                    deleteObj.deletedCount === 0
+                      ? res.status(404).json("There is no completed todo found")
+                      : res.json("Delete all completed todos successfully");
+                }
+              });
+        })
+
+
+       // this function updates the state of completion of a task 
+        app.put('/updateCompletion/:id/:isCompleted' , (req, res)=>{
+          Todo.updateOne({_id: req.params.id}, {isCompleted: req.params.isCompleted}, (err, updatedObj)=>{
+              if(err){
+                  console.log("error", err)
+              }else{
+                  console.log(updatedObj)
+                  updatedObj.matchedCount===0
+                  ? res.json("todo u sent does not exist")
+                  : res.json("completion status has been updated successfully")
+                 
+
+              }
+          })
+
+
         })
 
        
