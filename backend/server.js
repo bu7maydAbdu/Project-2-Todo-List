@@ -72,8 +72,9 @@ app.get('/tasks', (req, res)=>{
 
 
 
-        app.get("/completedTasks", (req, res)=>{
-            Todo.find({isCompleted: true}, (err, data)=>{
+        // a function to get elements with either true or false isCompleted  depending on what the user enter
+        app.get("/filter", (req, res)=>{
+            Todo.find({isCompleted:req.query.isCompleted}, (err, data)=>{
                 if(err){
                     console.log('ERROR: ', err)
                 }else{
@@ -82,15 +83,7 @@ app.get('/tasks', (req, res)=>{
             })
         })
 
-        app.get("/notCompletedTasks", (req, res)=>{
-            Todo.find({isCompleted: false}, (err, data)=>{
-                if(err){
-                    console.log('ERROR: ', err)
-                }else{
-                    res.json(data)
-                }
-            })
-        })
+       
 
 
 
