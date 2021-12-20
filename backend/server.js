@@ -41,35 +41,40 @@ app.get('/tasks', (req, res)=>{
 
 
          //delete  one todo function down below
-        app.delete('/tasks', (req, res)=>{
-          
-            Todo.deleteOne({title: req.body.title}, (err, deleteObj) => {
-                if (err) {
-                  console.log("error", err)
-                  res.status(404).json("todo not found")
-                } else {
-                  console.log(deleteObj)
-                  res.json("deleted one todo successfully")
-                }
-              });
-        })
-
+        
+   app.delete("/tasks/:id", (req, res) => {
+    
+  
+    Todo.deleteOne({ _id: req.params.id }, (err, deleteObj) => {
+      if (err) {
+        console.log("ERROR: ", err);
+      } else {
+        deleteObj.deletedCount === 1
+          ? res.json("Delete one todo successfully")
+          : res.status(404).json("This todo is not found");
+      }
+    });
+  });
         
       // update one todo function down below
-        app.put("/tasks/:oldTitle", (req, res)=>{
-            Todo.updateOne({title: req.params.oldTitle}, {title: req.body.newTitle} ,(err, updateObj)=>{
-               if(err){
-                   return handleError(err)
-               }else{
-                   if (updateObj.matchedCount=== 0 ){
-                       res.status(404).json("todo not found ")
-                   }else{
-                       console.log(updateObj)
-                   res.json("updated one todo successfully")
-                   }
-               }
-            })
-        })
+        
+app.put("/tasks/:id", (req, res) => {
+    
+    Todo.updateOne(
+      { _id: req.params.id },
+      { title: req.body.newTitle },
+      (err, updateObj) => {
+        if (err) {
+          res.status(400).json(err);
+        } else {
+          console.log(updateObj);
+          updateObj.modifiedCount === 1
+            ? res.json("Update one todo successfully")
+            : res.status(404).json("This todo is not found");
+        }
+      }
+    );
+  });
 
 
     
@@ -112,7 +117,7 @@ app.get('/tasks', (req, res)=>{
                   console.log("error", err)
               }else{
                   console.log(updatedObj)
-                  updatedObj.matchedCount===0
+                  updatedObj.modifiedCount===0
                   ? res.json("todo u sent does not exist")
                   : res.json("completion status has been updated successfully")
                  
