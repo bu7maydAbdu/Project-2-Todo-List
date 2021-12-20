@@ -63,9 +63,32 @@ app.get('/tasks', (req, res)=>{
                    if (updateObj.matchedCount=== 0 ){
                        res.status(404).json("todo not found ")
                    }else{
+                       console.log(updateObj)
                    res.json("updated one todo successfully")
                    }
                }
+            })
+        })
+
+
+
+        app.get("/completedTasks", (req, res)=>{
+            Todo.find({isCompleted: true}, (err, data)=>{
+                if(err){
+                    console.log('ERROR: ', err)
+                }else{
+                    res.json(data)
+                }
+            })
+        })
+
+        app.get("/notCompletedTasks", (req, res)=>{
+            Todo.find({isCompleted: false}, (err, data)=>{
+                if(err){
+                    console.log('ERROR: ', err)
+                }else{
+                    res.json(data)
+                }
             })
         })
 
