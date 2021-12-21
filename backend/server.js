@@ -1,5 +1,6 @@
 const express = require('express')
 const app=express()
+const cors=require("cors")
 
 
 const db=require('./db')
@@ -7,6 +8,7 @@ const { updateOne } = require('./todo')
 const Todo=require('./todo')
 
 app.use(express.json())
+app.use(cors())
 
 
 app.get('/', (req, res)=>{
