@@ -13,6 +13,8 @@ app.get('/', (req, res)=>{
 res.json('GET / is working')
 })
 
+
+
 // get all tasks function  app.get()
 app.get('/tasks', (req, res)=>{
     Todo.find({}, (err, data)=>{
@@ -25,6 +27,10 @@ app.get('/tasks', (req, res)=>{
     
     })
     
+
+
+
+
 // this function creates new todo 
     app.post('/tasks', (req, res)=>{
         
@@ -38,6 +44,11 @@ app.get('/tasks', (req, res)=>{
         })
         
         })
+
+
+
+
+
 
 
          //delete  one todo function down below
@@ -56,6 +67,10 @@ app.get('/tasks', (req, res)=>{
     });
   });
         
+
+
+
+
       // update one todo function down below
         
 app.put("/tasks/:id", (req, res) => {
@@ -93,6 +108,11 @@ app.put("/tasks/:id", (req, res) => {
 
 
 
+
+
+
+
+
         // this function deletes completed tasks
         app.delete('/deleteCompleted', (req, res)=>{
           
@@ -109,6 +129,10 @@ app.put("/tasks/:id", (req, res) => {
               });
         })
 
+
+
+
+        
 
        // this function updates the state of completion of a task 
         app.put('/updateCompletion/:id/:isCompleted' , (req, res)=>{
