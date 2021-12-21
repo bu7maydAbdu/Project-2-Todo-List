@@ -28,6 +28,16 @@ app.get('/tasks', (req, res)=>{
     })
     
 
+// a function to get elements with either true or false isCompleted  depending on what the user enter
+app.get("/filter", (req, res)=>{
+    Todo.find({isCompleted:req.query.isCompleted}, (err, data)=>{
+        if(err){
+            console.log('ERROR: ', err)
+        }else{
+            res.json(data)
+        }
+    })
+})
 
 
 
@@ -66,6 +76,25 @@ app.get('/tasks', (req, res)=>{
       }
     });
   });
+
+
+
+
+     // this function deletes completed tasks
+     app.delete('/deleteCompleted', (req, res)=>{
+          
+        Todo.deleteMany({isCompleted: true}, (err, deleteObj) => {
+            if (err) {
+              console.log("error", err)
+              
+            } else {
+                console.log(deleteObj);
+                deleteObj.deletedCount === 0
+                  ? res.status(404).json("There is no completed todo found")
+                  : res.json("Delete all completed todos successfully");
+            }
+          });
+    })
         
 
 
@@ -92,49 +121,12 @@ app.put("/tasks/:id", (req, res) => {
   });
 
 
-    
-
-
-        // a function to get elements with either true or false isCompleted  depending on what the user enter
-        app.get("/filter", (req, res)=>{
-            Todo.find({isCompleted:req.query.isCompleted}, (err, data)=>{
-                if(err){
-                    console.log('ERROR: ', err)
-                }else{
-                    res.json(data)
-                }
-            })
-        })
-
-
-
-
-
-
-
-
-        // this function deletes completed tasks
-        app.delete('/deleteCompleted', (req, res)=>{
-          
-            Todo.deleteMany({isCompleted: true}, (err, deleteObj) => {
-                if (err) {
-                  console.log("error", err)
-                  
-                } else {
-                    console.log(deleteObj);
-                    deleteObj.deletedCount === 0
-                      ? res.status(404).json("There is no completed todo found")
-                      : res.json("Delete all completed todos successfully");
-                }
-              });
-        })
 
 
 
 
         
-
-       // this function updates the state of completion of a task 
+  // this function updates the state of completion of a task 
         app.put('/updateCompletion/:id/:isCompleted' , (req, res)=>{
           Todo.updateOne({_id: req.params.id}, {isCompleted: req.params.isCompleted}, (err, updatedObj)=>{
               if(err){
