@@ -129,15 +129,15 @@ app.put("/tasks/:id", (req, res) => {
 
         
   // this function updates the state of completion of a task 
-        app.put('/updateCompletion/:id/:isCompleted' , (req, res)=>{
+        app.put('/tasks/:id/:isCompleted' , (req, res)=>{
           Todo.updateOne({_id: req.params.id}, {isCompleted: req.params.isCompleted}, (err, updatedObj)=>{
               if(err){
                   console.log("error", err)
               }else{
                   console.log(updatedObj)
-                  updatedObj.modifiedCount===0
-                  ? res.json("todo u sent does not exist")
-                  : res.json("completion status has been updated successfully")
+                  updatedObj.modifiedCount===1
+                   ? res.json("Update one todo successfully")
+          : res.status(404).json("This todo is not found");
                  
 
               }

@@ -63,10 +63,24 @@ export default function App() {
   }
 
 
+  const toggleTodo = (id, newStatus) => {
+    axios
+      .put(`http://localhost:5000/tasks/${id}/${newStatus}`)
+      .then((response) => {
+        // console.log('RESPONSE: ', response);
+        console.log("DATA: ", response.data);
+        getData();
+        // change react hooks state using spread operator
+      })
+      .catch((err) => {
+        console.log("ERR: ", err);
+      });
+  };
+
 
 
   const mapOverTasks = tasks.map((taskObj, i) => (
-    <Todo key={i} task={taskObj} dltTsk={dltTask}/>
+    <Todo key={i} task={taskObj} dltTsk={dltTask} toggleTodo={toggleTodo}/>
   ));
 
   return (

@@ -1,20 +1,57 @@
+body {
+  background: linear-gradient(90deg, rgba(50,195,152,1) 0%, rgba(45,138,147,1) 43%, rgba(26,38,170,1) 100%);
+}
+
 .App {
   text-align: center;
+ 
 }
 
 .Todo{
   border: 3px solid black;
-  width: 200px;
+  width: 300px;
   margin: auto;
   margin-top: 50px;
   border-radius: 10px;
   font-weight: bold;
+  background-color: white;
   
+  
+}
+
+
+.checkbox{
+  -webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+
+.checkbox:checked {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+.checkbox:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #99a1a7;
 }
 
 .Todo span{
   margin: 0px 10px 0px 10px;
 }
+
 
 
 .delete-button {
