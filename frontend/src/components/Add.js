@@ -15,7 +15,7 @@ export default function Add(props) {
       <input
       className="input-new-task"
         type="text"
-        placeholder="Write new title here ..."
+        placeholder="Write task title here ..."
         onChange={(e) => {
           setNewTitle(e.target.value);
         }}

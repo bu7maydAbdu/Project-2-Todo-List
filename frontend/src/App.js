@@ -93,10 +93,13 @@ export default function App() {
       <p className="app-title">Todooooo</p>
       {/* when click on this button 
       should call function bring Data */}
-      <button className="get-tasks" onClick={getData}>GET TASKS</button>
+      {/* <button className="get-tasks" onClick={getData}>GET TASKS</button> */}
       <Add createFunc={postNewTodo} />
-      {mapOverTasks}
 
+      <div className="tasks-div">
+
+      {mapOverTasks}
+      </div>
       
     </div>
   );
