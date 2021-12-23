@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Permanent+Marker&family=Ubuntu:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
 body {
   background: linear-gradient(90deg, rgba(50,195,152,1) 0%, rgba(45,138,147,1) 43%, rgba(26,38,170,1) 100%);
 }
@@ -7,17 +12,68 @@ body {
  
 }
 
+.get-tasks {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: white;
+  background: linear-gradient(90deg, rgba(50, 195, 152, 0.308) 0%, rgba(45, 138, 147, 0.308) 43%, hsla(235, 73%, 38%, 0.308) 100%);
+  transition: all 0.9s ease-in-out;
+  cursor: pointer;
+}
+.get-tasks:hover {
+
+  background: #49dbb0;
+}
+.input-new-task {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input-new-task-button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  font-family: 'Ubuntu', sans-serif; 
+  font-weight: bold;
+  background: linear-gradient(90deg, rgba(50, 195, 152, 0.308) 0%, rgba(45, 138, 147, 0.308) 43%, hsla(235, 73%, 38%, 0.308) 100%);
+  transition: all 0.9s ease-in-out;
+  cursor: pointer;
+
+}
+
+.input-new-task-button:hover{
+  background: #49dbb0;
+
+}
 .Todo{
-  border: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+    border: none;
   width: 300px;
   margin: auto;
   margin-top: 50px;
   border-radius: 10px;
-  font-weight: bold;
+  font-size: 1.6rem;
+  /* font-weight: bold; */
+  font-family: 'Permanent Marker', cursive;
+    /* font-family: 'Ubuntu', sans-serif;  */
+
   background-color: white;
-  
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
   
 }
+
+
+.Todo:hover {
+  transform: scale(1.2);
+}
+
 
 
 .checkbox{
@@ -29,6 +85,7 @@ body {
 	border-radius: 3px;
 	display: inline-block;
 	position: relative;
+  cursor: pointer;
 }
 
 
@@ -56,4 +113,6 @@ body {
 
 .delete-button {
   border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
 }

@@ -47,6 +47,9 @@ export default function App() {
     });
   };
 
+
+
+
   const dltTask=(id)=>{
     axios
     .delete(`http://localhost:5000/tasks/${id}`)
@@ -61,6 +64,8 @@ export default function App() {
       console.log("ERR: ", err);
     });
   }
+
+
 
 
   const toggleTodo = (id, newStatus) => {
@@ -88,7 +93,7 @@ export default function App() {
       <p>todo app</p>
       {/* when click on this button 
       should call function bring Data */}
-      <button onClick={getData}>GET TASKS</button>
+      <button className="get-tasks" onClick={getData}>GET TASKS</button>
       <Add createFunc={postNewTodo} />
       {mapOverTasks}
 
