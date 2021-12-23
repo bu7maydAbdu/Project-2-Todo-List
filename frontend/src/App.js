@@ -90,7 +90,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <p>todo app</p>
+      <p className="app-title">Todooooo</p>
       {/* when click on this button 
       should call function bring Data */}
       <button className="get-tasks" onClick={getData}>GET TASKS</button>
