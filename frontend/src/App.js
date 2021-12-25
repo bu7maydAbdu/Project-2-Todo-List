@@ -49,7 +49,7 @@ export default function App() {
 
 
 
-
+// delete task feature  associated with the cross icon that delete a certain task
   const dltTask=(id)=>{
     axios
     .delete(`http://localhost:5000/tasks/${id}`)
@@ -66,7 +66,7 @@ export default function App() {
   }
 
 
-  
+  //clear all compleated tasks function 
   const clearCompletdTasks=()=>{
     axios
     .delete(`http://localhost:5000/tasks`)
@@ -83,7 +83,7 @@ export default function App() {
   }
 
 
-
+// a function associated  with the checkbox  to change its value  based on  either  the box is checked or not
   const toggleTodo = (id, newStatus) => {
     axios
       .put(`http://localhost:5000/tasks/${id}/${newStatus}`)
@@ -99,7 +99,7 @@ export default function App() {
   };
 
 
-
+// a map to generate  the tasks  that are in the db 
   const mapOverTasks = tasks.map((taskObj, i) => (
     <Todo key={taskObj._id} task={taskObj} dltTsk={dltTask} toggleTodo={toggleTodo}/>
   ));
@@ -120,8 +120,9 @@ export default function App() {
       </div>
 
       <div className="tasks-div">
+        {/* added this div to make the tasks arrange in grids using css */}
 
-      {mapOverTasks}
+     {mapOverTasks}
       </div>
       
     </div>
