@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 
 body {
   /* background: linear-gradient(90deg, rgba(50,195,152,1) 0%, rgba(45,138,147,1) 43%, rgba(26,38,170,1) 100%); */
@@ -54,6 +56,11 @@ body {
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
+
+.control-buttons{
+  display: flex;
+  justify-content: center;
+}
 .input-new-task {
   border-top: 1px solid #49dbb0 ;
   border-bottom:  none;
@@ -88,6 +95,7 @@ input:focus, textarea:focus, select:focus{
   font-family: 'Ubuntu', sans-serif; 
   font-weight: bold;
   background: linear-gradient(90deg, rgba(50, 195, 152, 0.308) 0%, rgba(45, 138, 147, 0.308) 43%, hsla(235, 73%, 38%, 0.308) 100%);
+  /* background: #146e92; */
   transition: all 0.9s ease-in-out;
   cursor: pointer;
   -webkit-box-shadow: 0 8px 6px -6px black;
@@ -100,6 +108,27 @@ input:focus, textarea:focus, select:focus{
   background: #49dbb0;
 
 }
+
+
+.clear-all-button{
+  border: none;
+  border-bottom: 3px solid #49dbb0;
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.9s ease-in-out;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+       box-shadow: 0 8px 6px -6px black;
+
+  
+}
+.clear-all-button:hover{
+  background-color: #49dbb0;
+}
+
+
 .Todo{
   display: flex;
   justify-content: space-between;
@@ -108,10 +137,11 @@ input:focus, textarea:focus, select:focus{
   margin: auto;
   margin-top: 50px;
   border-radius: 10px;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   /* font-weight: bold; */
   /* font-family: 'Permanent Marker', cursive; */
-    font-family: 'Ubuntu', sans-serif; 
+    /* font-family: 'Ubuntu', sans-serif;  */
+    font-family: 'Ubuntu Condensed', sans-serif;
     /* font-family: 'Indie Flower', cursive; */
         -webkit-box-shadow: 0 8px 6px -6px black inset;
   -moz-box-shadow: 0 8px 6px -6px black inset;
@@ -179,3 +209,12 @@ input:focus, textarea:focus, select:focus{
   background-color: transparent;
   cursor: pointer;
 }
+
+
+
+
+@media (max-width: 593px) {
+  .tasks-div {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }}

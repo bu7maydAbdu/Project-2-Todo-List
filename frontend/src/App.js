@@ -66,6 +66,22 @@ export default function App() {
   }
 
 
+  
+  const clearCompletdTasks=()=>{
+    axios
+    .delete(`http://localhost:5000/tasks`)
+    .then((response) => {
+      // console.log('RESPONSE: ', response);
+      console.log("DATA: ", response.data);
+      // setTasks(response.data);
+      getData()
+      // change react hooks state using spread operator
+    })
+    .catch((err) => {
+      console.log("ERR: ", err);
+    });
+  }
+
 
 
   const toggleTodo = (id, newStatus) => {
@@ -85,16 +101,23 @@ export default function App() {
 
 
   const mapOverTasks = tasks.map((taskObj, i) => (
-    <Todo key={i} task={taskObj} dltTsk={dltTask} toggleTodo={toggleTodo}/>
+    <Todo key={taskObj._id} task={taskObj} dltTsk={dltTask} toggleTodo={toggleTodo}/>
   ));
 
   return (
     <div className="App">
       <p className="app-title">Todooooo</p>
+     
       {/* when click on this button 
       should call function bring Data */}
       {/* <button className="get-tasks" onClick={getData}>GET TASKS</button> */}
+      <div className="control-buttons">
+
+      <button className="clear-all-button" onClick={clearCompletdTasks}>Clear all Completed tasks</button>
+
       <Add createFunc={postNewTodo} />
+
+      </div>
 
       <div className="tasks-div">
 

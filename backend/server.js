@@ -83,7 +83,7 @@ app.get("/filter", (req, res)=>{
 
 
      // this function deletes completed tasks
-     app.delete('/deleteCompleted', (req, res)=>{
+     app.delete('/tasks', (req, res)=>{
           
         Todo.deleteMany({isCompleted: true}, (err, deleteObj) => {
             if (err) {
