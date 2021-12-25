@@ -83,6 +83,23 @@ export default function App() {
   }
 
 
+  const filterTasks = (status) => {
+    // should filter data using axios based on  its completion status ... this function works on both get pending and get completed buttons
+   
+    axios
+      .get(`http://localhost:5000/filter?isCompleted=${status}`)
+      .then((response) => {
+        // console.log('RESPONSE: ', response);
+        console.log("DATA: ", response.data);
+        setTasks(response.data);
+      })
+      .catch((err) => {
+        console.log("ERR: ", err);
+      });
+  };
+
+
+
 // a function associated  with the checkbox  to change its value  based on  either  the box is checked or not
   const toggleTodo = (id, newStatus) => {
     axios
@@ -110,12 +127,20 @@ export default function App() {
      
       {/* when click on this button 
       should call function bring Data */}
-      {/* <button className="get-tasks" onClick={getData}>GET TASKS</button> */}
+      {/* <button className="get-tasks" onClick={getData}>GET All TASKS</button> */}
       <div className="control-buttons">
 
       <button className="clear-all-button" onClick={clearCompletdTasks}>Clear all Completed tasks</button>
 
       <Add createFunc={postNewTodo} />
+
+      <button className="get-pending-button" onClick={()=>{
+             filterTasks(false)
+      }}>Pending</button>
+
+      <button className="get-completed-button" onClick={()=>{
+             filterTasks(true)
+      }}>Completed</button>
 
       </div>
 

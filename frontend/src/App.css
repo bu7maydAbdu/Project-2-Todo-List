@@ -59,7 +59,9 @@ input:focus, textarea:focus, select:focus{
 
 .control-buttons{
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
+  width: 800px;
+  margin: auto;
 }
 .input-new-task {
   border-top: 1px solid #49dbb0 ;
@@ -110,12 +112,14 @@ input:focus, textarea:focus, select:focus{
 }
 
 
-.clear-all-button{
+.clear-all-button, .get-pending-button, .get-completed-button{
   border: none;
   border-bottom: 3px solid #49dbb0;
   border-radius: 10px;
   background-color: transparent;
   color: white;
+  font-family: 'Ubuntu', sans-serif; 
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.9s ease-in-out;
   -webkit-box-shadow: 0 8px 6px -6px black;
@@ -124,9 +128,13 @@ input:focus, textarea:focus, select:focus{
 
   
 }
-.clear-all-button:hover{
+.clear-all-button:hover, .get-pending-button:hover, .get-completed-button:hover{
   background-color: #49dbb0;
+
 }
+
+
+
 
 
 .Todo{
