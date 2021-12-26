@@ -66,7 +66,7 @@ app.get("/filter", (req, res)=>{
                     if(err){
                       console.log("ERROR", err)
                     }else {
-                      res.status(201).json(newUser)
+                      res.status(201).json({message:"Created new user successfully", newUser})
                       console.log("Created new user successfully", newUser)
                     }
         })
