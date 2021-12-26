@@ -6,6 +6,7 @@ const cors=require("cors")
 const db=require('./db')
 const { updateOne } = require('./todo')
 const Todo=require('./todo')
+const User= require("./user")
 
 app.use(express.json())
 app.use(cors())
@@ -55,6 +56,54 @@ app.get("/filter", (req, res)=>{
             }
         })
         
+        })
+
+
+        //post create new user function 
+
+        app.post('/users/register', (req, res)=>{
+        User.create(req.body, (err, newUser)=>{
+                    if(err){
+                      console.log("ERROR", err)
+                    }else {
+                      res.status(201).json(newUser)
+                      console.log("Created new user successfully", newUser)
+                    }
+        })
+
+        })
+
+
+
+        //login function 
+        app.post("/users/login", (req, res)=>{
+          User.find({email: req.body.email}, (err, arrUserFound)=>{
+                 if(err){
+
+                   console.log("ERROR", err)
+
+                 }else {
+
+                   if(arrUserFound.length===1){
+
+                       if(req.body.password === arrUserFound[0].password) {
+
+                        res.status(200).json({
+                          message: "Login Successfully",
+                          username: arrUserFound[0].username
+                        });
+
+                       }else{
+
+                            res.status(400).json({messag: "wrong password"})
+                       }
+                 }else{
+
+                   res.json({message: "email is not registered"})
+
+                 }
+                }
+          })
         })
 
 
