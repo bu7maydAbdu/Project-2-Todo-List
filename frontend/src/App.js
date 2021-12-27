@@ -13,6 +13,11 @@ export default function App() {
   const [tasks, setTasks] = useState([]);
 
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const [username, setUsername] = useState("")
+
+
   useEffect(()=>{
     getData()
   },[])
@@ -129,6 +134,9 @@ export default function App() {
     <div className="App">
       <p className="app-title">Todooooo</p>
 
+      <p>{username}</p>
+
+
      <Link to="/home">Home</Link> {"  |  "}
      <Link to="/login">Login</Link> {"  |  "}
      <Link to="/register">Register</Link> 
@@ -168,7 +176,9 @@ should call function bring Data */}
 </div>
 } />
 
-        <Route path="/login" element={<Login/>} />
+        <Route path="/login" element={<Login  setIsLoggedIn={setIsLoggedIn}
+          setUsername={setUsername}
+        />} />
         <Route path="/register" element={<Register/>} />
       </Routes>
 

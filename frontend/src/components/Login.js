@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import { Link } from 'react-router-dom'
 
 
 
 
-export default function Login() {
+
+export default function Login(props) {
 
 
 const [email, setEmail] = useState("")
@@ -25,7 +27,8 @@ axios
 .then((response) => {
   // console.log('RESPONSE: ', response);
   console.log("DATA: ", response.data);
-
+ props.setIsLoggedIn(true)
+props.setUsername(response.data.username)
 })
 .catch((err) => {
   console.log("ERR: ", err);
@@ -54,6 +57,7 @@ axios
 
             <input type="submit" value="login" onClick={loginFunc}/>
             </form>
+             <Link to="/register">dont have an account?</Link>
         </div>
     )
 }

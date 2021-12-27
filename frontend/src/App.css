@@ -224,6 +224,7 @@ input:focus, textarea:focus, select:focus{
 
 
 
+
 @media (max-width: 593px) {
   .tasks-div {
     display: grid;

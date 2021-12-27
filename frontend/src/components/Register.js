@@ -1,6 +1,7 @@
 import { Axios } from 'axios'
 import React, {useState} from 'react'
 import axios from "axios"
+import { Routes, Route, Link } from "react-router-dom";
 
 export default function Register() {
 
@@ -63,6 +64,8 @@ export default function Register() {
 
 
             </form>
+            <Link to="/login"> have an account?</Link>
+
         </div>
     )
 }
