@@ -6,6 +6,8 @@ import Todo from "./components/Todo";
 import Add from "./components/Add";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import { Routes, Route, Link } from "react-router-dom";
+
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -126,39 +128,53 @@ export default function App() {
   return (
     <div className="App">
       <p className="app-title">Todooooo</p>
-     
-      {/* when click on this button 
-      should call function bring Data */}
-      {/* <button className="get-tasks" onClick={getData}>GET All TASKS</button> */}
-      <div className="control-buttons">
 
-      <button className="clear-all-button" onClick={clearCompletdTasks}>Clear all Completed tasks</button>
-
-      <Add createFunc={postNewTodo} />
-
-      <button className="get-pending-button" onClick={()=>{
-             filterTasks(false)
-      }}>Pending</button>
-
-      <button className="get-completed-button" onClick={()=>{
-             filterTasks(true)
-      }}>Completed</button>
-
-      </div>
-
-      <div className="tasks-div">
-        {/* added this div to make the tasks arrange in grids using css */}
-
-     {mapOverTasks}
-
-
-     <Register/>
-
-     <Login/>
+     <Link to="/home">Home</Link> {"  |  "}
+     <Link to="/login">Login</Link> {"  |  "}
+     <Link to="/register">Register</Link> 
 
 
 
-      </div>
+      <Routes>
+      <Route path="/home" element={
+      <div className="Home">
+
+{/* when click on this button 
+should call function bring Data */}
+{/* <button className="get-tasks" onClick={getData}>GET All TASKS</button> */}
+<div className="control-buttons">
+
+<button className="clear-all-button" onClick={clearCompletdTasks}>Clear all Completed tasks</button>
+
+<Add createFunc={postNewTodo} />
+
+<button className="get-pending-button" onClick={()=>{
+       filterTasks(false)
+}}>Pending</button>
+
+<button className="get-completed-button" onClick={()=>{
+       filterTasks(true)
+}}>Completed</button>
+
+</div>
+
+<div className="tasks-div">
+  {/* added this div to make the tasks arrange in grids using css */}
+
+{mapOverTasks}
+
+
+</div>
+</div>
+} />
+
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+      </Routes>
+
+
+
+
       
     </div>
   );
