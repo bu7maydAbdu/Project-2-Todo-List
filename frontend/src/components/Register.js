@@ -36,8 +36,8 @@ export default function Register() {
 
     return (
         <div>
-          <form action="">
-            <label htmlFor="email-input">email:</label>
+          <form id='register-form' action="">
+            <label htmlFor="email-input">Email:</label>
             <input id='email-input' type="text" onChange={(e)=>{
               setEmail(e.target.value)
             }}
@@ -58,13 +58,13 @@ export default function Register() {
             }}
             value={username}/>
 <br/>
-
-            <input class="btn btn-outline-info"type="submit" value="register" onClick={registerUser}/>
+             
+              <Link className='link-to-login-register' to="/login"> have an account?</Link>
+            <input class="login-register-button"type="submit" value="register" onClick={registerUser}/>
 
 
 
             </form>
-            <Link to="/login"> have an account?</Link>
 
         </div>
     )

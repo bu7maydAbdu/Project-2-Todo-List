@@ -184,7 +184,7 @@ export default function App() {
 
               <li className="nav-item">    
 
-                <button onClick={logoutFunc}>LogOut</button>
+                <button className="logout logout-width-height" onClick={logoutFunc}>LogOut</button>
              
              
               </li>
@@ -213,6 +213,7 @@ should call function bring Data */}
 <button className="get-completed-button" onClick={()=>{
        filterTasks(true)
 }}>Completed</button>
+
 
 {/* <button className="get-tasks" onClick={getData}>GET All TASKS</button> */}
 

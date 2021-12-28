@@ -27,9 +27,7 @@ body {
   margin-top: -20px;
  
 }
-.nav-itemL:hover {
-  color: #49dbb0;
- }
+
 
 
 .app-title {
@@ -102,7 +100,8 @@ input:focus, textarea:focus, select:focus{
   color: white ;
 }
 
-.input-new-task-button {
+         
+.input-new-task-button , .logout, .login-register-button{
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -119,9 +118,16 @@ input:focus, textarea:focus, select:focus{
 
 }
 
-.input-new-task-button:hover{
+
+
+.input-new-task-button:hover, .logout:hover, .login-register-button:hover{
   background: #49dbb0;
 
+}
+
+
+.logout-width-height {
+padding: 5px;
 }
 
 
@@ -237,12 +243,91 @@ input:focus, textarea:focus, select:focus{
 
 
 
+/* login sr=tyling below */
+
+#login-form, #register-form {
+  margin-top: 20vh;
+
+}
+
+#email, #password , #email-input , #password-input, #username-input{
+  border-top: none;
+  border-bottom: 3px solid #49dbb0 ;
+  border-left: none;
+  border-right: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  background-color: transparent;
+  -webkit-box-shadow: 0 8px 6px -6px black inset;
+  -moz-box-shadow: 0 8px 6px -6px black inset;
+       box-shadow: 0 8px 6px -6px black inset;
+}
+
+label {
+  display: block;
+  color: white;
+  margin-top: 30px;
+
+}
+
+.link-to-login-register{
+  text-decoration: none;
+  color: #49dbb0;
+}
+
+
+
+
 
 @media (max-width: 1230px) {
   .tasks-div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }}
+
+
+  @media (max-width:830px){
+       .control-buttons{
+        max-width: 300px;
+         height: fit-content;
+         display: grid;
+         grid-template-columns: repeat(1, 1fr);
+         
+        
+         
+       }
+       
+    
+  
+
+
+       .clear-all-button, .get-pending-button, .get-completed-button, .input-new-task{
+         max-width: 300px;
+         align-self: center;
+         margin:auto; 
+         margin-top: 20px;
+       }
+       
+       .control-buttons    button:nth-of-type(1) {
+        order: 4;
+      }
+      
+    .control-buttons button:nth-of-type(2) {
+        order: 3;
+      } 
+      
+      .control-buttons button:nth-of-type(3) {
+        order: 2;
+      }
+      
+     .control-buttons button:nth-of-type(4) {
+        order: 1;
+      }
+      
+      
+      
+      }
 
 
   @media (max-width: 593px) {

@@ -42,7 +42,7 @@ props.setUsername(response.data.username)
 
     return (
         <div>
-           <form action="">
+           <form id='login-form' action="">
             <label htmlFor='email'>Email:</label>
             <input id="email" type="email" value={email} onChange={(e)=>{
               setEmail(e.target.value)
@@ -55,9 +55,11 @@ props.setUsername(response.data.username)
             }}/>
             <br/>
 
-            <input class="btn btn-info" type="submit" value="login" onClick={loginFunc}/>
+            <Link className='link-to-login-register' to="/register">dont have an account?</Link>
+            <input className='login-register-button' type="submit" value="login" onClick={loginFunc}/>
+            
+
             </form>
-             <Link to="/register">dont have an account?</Link>
         </div>
     )
 }
