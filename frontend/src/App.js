@@ -22,6 +22,13 @@ export default function App() {
     getData()
   },[])
 
+
+
+  const logoutFunc =()=>{
+    setIsLoggedIn(false)
+    setUsername("")
+  }
+
   const getData = () => {
     // should bring data using axios
     // from backend (GET /tasks)
@@ -181,6 +188,8 @@ should call function bring Data */}
         />} />
         <Route path="/register" element={<Register/>} />
       </Routes>
+
+    <button onClick={logoutFunc}>LogOut</button>
 
 
 
