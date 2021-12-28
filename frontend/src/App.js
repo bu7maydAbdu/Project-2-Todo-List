@@ -139,21 +139,64 @@ export default function App() {
 
   return (
     <div className="App">
-      <p className="app-title">Todooooo</p>
+
+
+      {/* <p className="app-title">Todooooo</p> */}
 
       <p>{username}</p>
 
+ {/* <Link to="/home">Home</Link> {"  |  "}
+      <Link to="/login">Login</Link> {"  |  "}
+  <Link to="/register">Register</Link>  */}
+     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <h1 className="app-title" href="#">
+          Todooooo
+          </h1>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link to="/home" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link to="/login" className="nav-link">
+                  Login
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link to="/register" className="nav-link">
+                  Register
+                </Link>
+              </li>
 
-     <Link to="/home">Home</Link> {"  |  "}
-     <Link to="/login">Login</Link> {"  |  "}
-     <Link to="/register">Register</Link> 
+              <li className="nav-item">    
 
+                <button onClick={logoutFunc}>LogOut</button>
+             
+             
+              </li>
 
-
+            </ul>
+          </div>
+        </div>
+      </nav>
       <Routes>
       <Route path="/home" element={
       <div className="Home">
-
+   
 {/* when click on this button 
 should call function bring Data */}
 {/* <button className="get-tasks" onClick={getData}>GET All TASKS</button> */}
@@ -170,6 +213,8 @@ should call function bring Data */}
 <button className="get-completed-button" onClick={()=>{
        filterTasks(true)
 }}>Completed</button>
+
+{/* <button className="get-tasks" onClick={getData}>GET All TASKS</button> */}
 
 </div>
 
@@ -189,7 +234,6 @@ should call function bring Data */}
         <Route path="/register" element={<Register/>} />
       </Routes>
 
-    <button onClick={logoutFunc}>LogOut</button>
 
 
 
