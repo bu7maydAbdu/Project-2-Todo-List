@@ -55,7 +55,7 @@ props.setUsername(response.data.username)
             }}/>
             <br/>
 
-            <input type="submit" value="login" onClick={loginFunc}/>
+            <input class="btn btn-info" type="submit" value="login" onClick={loginFunc}/>
             </form>
              <Link to="/register">dont have an account?</Link>
         </div>

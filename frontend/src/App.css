@@ -225,8 +225,15 @@ input:focus, textarea:focus, select:focus{
 
 
 
-@media (max-width: 593px) {
+@media (max-width: 1230px) {
   .tasks-div {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }}
+
+
+  @media (max-width: 593px) {
+    .tasks-div {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }}

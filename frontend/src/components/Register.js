@@ -59,7 +59,7 @@ export default function Register() {
             value={username}/>
 <br/>
 
-            <input type="submit" value="register" onClick={registerUser}/>
+            <input class="btn btn-outline-info"type="submit" value="register" onClick={registerUser}/>
 
 
 
