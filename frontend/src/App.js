@@ -225,6 +225,7 @@ const navigate = useNavigate()
         </div>
       </nav>  */}
       <Routes>
+        <Route path="/" element={<Login/>}/>
       <Route path="/home" element={
       <div className="Home">
 
@@ -284,7 +285,7 @@ const navigate = useNavigate()
    
 {/* when click on this button 
 should call function bring Data */}
-{/* <button className="get-tasks" onClick={getData}>GET All TASKS</button> */}
+<button className="get-tasks" onClick={getData}>GET All TASKS</button>
 <div className="control-buttons">
 
 <button className="clear-all-button" onClick={clearCompletdTasks}>Clear all Completed tasks</button>

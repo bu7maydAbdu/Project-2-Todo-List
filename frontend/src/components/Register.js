@@ -65,12 +65,12 @@ export default function Register() {
             <ul className="navbar-nav">
 
               
-              <li class="nav-item login-nav">
+              <li className="nav-item login-nav">
                 <Link to="/login" className="nav-link">
                   Login
                 </Link>
               </li>
-              <li class="nav-item register-nav">
+              <li className="nav-item register-nav">
                 <Link to="/register" className="nav-link">
                   Register
                 </Link>
@@ -91,7 +91,7 @@ export default function Register() {
           <h2 className='forms-titles'>Registration</h2>
 
             <label htmlFor="email-input">Email:</label>
-            <input id='email-input' type="text" onChange={(e)=>{
+            <input id='email-input' type="email" onChange={(e)=>{
               setEmail(e.target.value)
             }}
             value={email}/>
@@ -113,7 +113,7 @@ export default function Register() {
 <br/>
              
               <Link className='link-to-login-register' to="/login"> have an account?</Link>
-            <input class="login-register-button"type="submit" value="register" onClick={registerUser}/>
+            <input className="login-register-button"type="submit" value="register" onClick={registerUser}/>
 
 
 

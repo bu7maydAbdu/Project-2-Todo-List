@@ -29,12 +29,10 @@ axios
  props.setIsLoggedIn(true)
 props.setUsername(response.data.username)
 
-
-if (props.isLoggedIn===true){
-  navigate("/home")
-
+if (props.isLoggedIn === true && logedUser.email!=="" && logedUser.password!=="" ){
+       navigate("/home")
 }else {
-  console.log("access not allowed")
+  navigate("/login")
 }
 
 
@@ -81,12 +79,12 @@ const navigate = useNavigate()
             <ul className="navbar-nav">
 
               
-              <li class="nav-item login-nav">
+              <li className="nav-item login-nav">
                 <Link to="/login" className="nav-link">
                   Login
                 </Link>
               </li>
-              <li class="nav-item register-nav">
+              <li className="nav-item register-nav">
                 <Link to="/register" className="nav-link">
                   Register
                 </Link>
@@ -118,7 +116,7 @@ const navigate = useNavigate()
             <br/>
 
             <Link className='link-to-login-register' to="/register">dont have an account?</Link>
-            <input className='login-register-button' type="submit" value="login" onClick={loginFunc} />
+            <input  className='login-register-button' type="submit" value="login" onClick={loginFunc} />
             
 
             </form>
