@@ -7,9 +7,12 @@ import Add from "./components/Add";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-export default function App() {
+
+
+export default   function App() {
   const [tasks, setTasks] = useState([]);
 
 
@@ -27,6 +30,7 @@ export default function App() {
   const logoutFunc =()=>{
     setIsLoggedIn(false)
     setUsername("")
+    navigate("/login")
   }
 
   const getData = () => {
@@ -132,10 +136,13 @@ export default function App() {
   };
 
 
+const navigate = useNavigate()
+
 // a map to generate  the tasks  that are in the db 
   const mapOverTasks = tasks.map((taskObj, i) => (
     <Todo key={taskObj._id} task={taskObj} dltTsk={dltTask} toggleTodo={toggleTodo}/>
   ));
+
 
   return (
     <div className="App">
@@ -143,16 +150,21 @@ export default function App() {
 
       {/* <p className="app-title">Todooooo</p> */}
 
-      <p>{username}</p>
+      {/* <p>{username}</p> */}
 
  {/* <Link to="/home">Home</Link> {"  |  "}
       <Link to="/login">Login</Link> {"  |  "}
   <Link to="/register">Register</Link>  */}
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+
+
+
+   {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <h1 className="app-title" href="#">
           Todooooo
           </h1>
+
+
           <button
             className="navbar-toggler"
             type="button"
@@ -166,6 +178,11 @@ export default function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
+
+              {}
+            
+
+             
               <li className="nav-item">
                 <Link to="/home" className="nav-link">
                   Home
@@ -182,6 +199,17 @@ export default function App() {
                 </Link>
               </li>
 
+
+
+              <li className=" nav-item  profile-name">
+            <p className=" nav-link">
+
+             {username}
+            </p>
+
+             </li>  
+
+
               <li className="nav-item">    
 
                 <button className="logout logout-width-height" onClick={logoutFunc}>LogOut</button>
@@ -189,13 +217,70 @@ export default function App() {
              
               </li>
 
+
+              
+
+            </ul>
+          </div>
+        </div>
+      </nav>  */}
+      <Routes>
+      <Route path="/home" element={
+      <div className="Home">
+
+<nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <h1 className="app-title" href="#">
+          Todooooo
+          </h1>
+
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+
+            
+
+             
+              <li className="nav-item  home-nav">
+                <Link to="/home" className="nav-link">
+                  Home
+                </Link>
+              </li> 
+
+
+              <li className=" nav-item  profile-name">
+            <p className=" nav-link">
+
+             {username}
+            </p>
+
+             </li>  
+
+
+              <li className="nav-item">    
+
+                <button className="logout logout-width-height" onClick={logoutFunc}>LogOut</button>
+             
+             
+              </li>
+
+              
+
             </ul>
           </div>
         </div>
       </nav>
-      <Routes>
-      <Route path="/home" element={
-      <div className="Home">
    
 {/* when click on this button 
 should call function bring Data */}
@@ -229,10 +314,11 @@ should call function bring Data */}
 </div>
 } />
 
-        <Route path="/login" element={<Login  setIsLoggedIn={setIsLoggedIn}
-          setUsername={setUsername}
+        <Route path="/login" element={<Login isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}
+          setUsername={setUsername} username={username}
         />} />
         <Route path="/register" element={<Register/>} />
+
       </Routes>
 
 
@@ -243,4 +329,8 @@ should call function bring Data */}
     </div>
   );
 }
+
+
+
+
 

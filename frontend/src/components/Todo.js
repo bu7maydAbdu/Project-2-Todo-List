@@ -18,6 +18,6 @@ export default function Todo(props) {
       <span style={{ textDecoration:isCompleted?'line-through':"none" }}>{title}</span>
       <button className='delete-button' onClick={()=>{
         props.dltTsk(_id)
-      }}>X</button>
+      }}><p className='x'>X</p></button>
     </div>
   )}
