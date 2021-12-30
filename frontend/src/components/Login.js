@@ -29,14 +29,15 @@ axios
   // console.log('RESPONSE: ', response);
   setloginStatus(response.status)
   setloginMessage(response.data.message)
-
-  console.log("DATA: ", response.data);
- props.setIsLoggedIn(true)
+  props.setIsLoggedIn(true)
 props.setUsername(response.data.username)
-
+  console.log("DATA: ", response.data);
+ 
 if (props.isLoggedIn === true && logedUser.email!=="" && logedUser.password!=="" ){
+
        navigate("/home")
 }else {
+  
   navigate("/login")
 }
 
@@ -123,7 +124,7 @@ const navigate = useNavigate()
             <br/>
              
              {/* herror handling for login  */}
-             {loginStatus===200 && (<div className='alert alert-success alert-logged'>
+             {loginStatus===200  && (<div className='alert alert-success alert-logged'>
               {loginMessage} 
             </div>)}
             
@@ -142,7 +143,3 @@ const navigate = useNavigate()
         </div>
     )
 }
-
-
-
-

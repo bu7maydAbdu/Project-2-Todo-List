@@ -212,7 +212,7 @@ padding: 5px;
 
 
 
-
+/* todo bar style wrapped here */
 .Todo{
   display: flex;
   justify-content: space-between;
@@ -245,9 +245,15 @@ padding: 5px;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
 }
+/* todo bar style wrapped here */
 
 
 
+
+
+
+
+/* checkbox styling wrapped here */
 .checkbox{
   max-width: 30px ;
   max-height: 26px;
@@ -278,13 +284,24 @@ padding: 5px;
 	left: 0px;
 	color: #49dbb0;
 }
+/* checkbox styling wrapped here */
 
+
+
+
+
+/* title of the task wrapped here */
 .Todo span{
   margin: 0px 10px 0px 10px;
 }
+/* title of the task wrapped here */
 
 
 
+
+
+
+/* delete button styling wrapped here */
 .delete-button {
   display: grid;
   align-content: center;
@@ -303,6 +320,7 @@ padding: 5px;
   margin-top: auto;
   margin-bottom: auto;
 }
+/* delete button styling wrapped here */
 
 
 
