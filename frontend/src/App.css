@@ -42,31 +42,37 @@ transition: all 0.9s ease-in-out;
 }
 
 
-.profile-control{
+
+
+
+.profile-card {
   display: flex;
-  height: 70px;
-  border-top: 3px solid #49dbb0;
-  border-bottom: 3px solid #49dbb0 ;
-  border-left: 3px solid #49dbb0;
-  border-right: 3px solid #49dbb0;
-  border-radius: 10px;
-  padding: 10px;
-  color: white;
-  background-color: transparent;
-  -webkit-box-shadow: 0 8px 6px -6px black inset ;
-  -moz-box-shadow: 0 8px 6px -6px black  inset;
-       box-shadow: 0 8px 6px -6px black  inset;
-      
+  max-width: 280px;
+  border-radius: 10px; 
+  margin-left: 30px;
+border-right:1px solid #49dbb0 ;
+border-left:1px solid #49dbb0 ;
+  border-bottom: 1px solid #49dbb0;
+  -webkit-box-shadow: 0 8px 6px -6px black ;
+  -moz-box-shadow: 0 8px 6px -6px black ;
+       box-shadow: 0 8px 6px -6px black ;
+
 }
 
 
 .profile-name  {
-  color: #49dbb0;
+border-radius: 5px;  
+color: #49dbb0;
+/* filter: invert(); */
+
   margin-left: 30px;
   margin-right: 10px;
   font-size: 18px;
   font-weight: bolder;
   font-family: "Ubuntu";
+  background: linear-gradient( 180deg,#fafafa ,#fafafa,#49dbaf7e,#fafafa, #fafafa,#fafafa) ; 
+ 
+
 
 }
 
@@ -282,16 +288,18 @@ padding: 5px;
 .delete-button {
   display: grid;
   align-content: center;
+  border:none;
   border-radius: 50%;
   max-width: 50px;
   max-height: 30px;
   font-weight: bold;
-  background-color: transparent;
+  background: linear-gradient(90deg, rgba(50, 195, 152, 0.308) 0%, rgba(45, 138, 147, 0.308) 43%, hsla(235, 73%, 38%, 0.308) 100%);
   cursor: pointer;
  
 
 }
 .x {
+  color: white;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -331,6 +339,17 @@ label {
 
 }
 
+
+.alert-wrong, .alert-logged {
+  display: grid;
+  align-content: center;
+  max-width: 200px;
+  max-height: 20px;
+  margin: auto;
+  margin-top: 5px;
+  /* opacity: 0.7; */
+}
+
 .link-to-login-register{
   text-decoration: none;
   color: #49dbb0;
@@ -346,6 +365,17 @@ label {
     grid-template-columns: repeat(2, 1fr);
   }}
 
+  @media (max-width: 991px) {
+    .profile-card, .home-nav {
+      margin: auto;
+      width: 200px;
+      height:min-content;
+   }
+  .profile-name{
+background: none;
+height: fit-content;
+  }}
+  
 
   @media (max-width:830px){
        .control-buttons{
@@ -357,6 +387,7 @@ label {
         
          
        }
+       
        
     
   

@@ -10,6 +10,8 @@ export default function Login(props) {
 
 const [email, setEmail] = useState("")
 const [password, setPassword] = useState("") 
+const [loginStatus, setloginStatus] = useState(0)
+const [loginMessage, setloginMessage] = useState()
 
 const loginFunc =(e)=>{
 e.preventDefault()
@@ -25,6 +27,9 @@ axios
 .post("http://localhost:5000/users/login",logedUser)
 .then((response) => {
   // console.log('RESPONSE: ', response);
+  setloginStatus(response.status)
+  setloginMessage(response.data.message)
+
   console.log("DATA: ", response.data);
  props.setIsLoggedIn(true)
 props.setUsername(response.data.username)
@@ -39,6 +44,8 @@ if (props.isLoggedIn === true && logedUser.email!=="" && logedUser.password!==""
 })
 .catch((err) => {
   console.log("ERR: ", err);
+  setloginStatus(err.response.status)
+  setloginMessage(err.response.data.message)
 });
 
 
@@ -114,6 +121,18 @@ const navigate = useNavigate()
                     setPassword(e.target.value)
             }}/>
             <br/>
+             
+             {/* herror handling for login  */}
+             {loginStatus===200 && (<div className='alert alert-success alert-logged'>
+              {loginMessage} 
+            </div>)}
+            
+            {(loginStatus===400 || loginStatus===404) &&  (<div className='alert alert-danger alert-wrong'>
+            {loginMessage} 
+            </div>)}
+             {/* herror handling for login  */}
+
+           
 
             <Link className='link-to-login-register' to="/register">dont have an account?</Link>
             <input  className='login-register-button' type="submit" value="login" onClick={loginFunc} />

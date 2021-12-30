@@ -95,7 +95,7 @@ app.get("/filter", (req, res)=>{
 
                        }else{
 
-                            res.status(400).json({messag: "wrong password"})
+                            res.status(400).json({message: "wrong password"})
                        }
                  }else{
 
